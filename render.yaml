@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: tavrixel-ai-backend
+    runtime: node
+    plan: free
+    rootDir: Tavrixel_Backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_MODEL
+        value: google/gemma-4-26b-a4b-it:free
+      - key: NODE_VERSION
+        value: 20
